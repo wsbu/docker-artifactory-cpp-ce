@@ -9,3 +9,8 @@ RUN apt-get install --yes \
 RUN wget --quiet -O /tmp/jfrog-artifactory-cpp-ce-5.11.0.deb https://bintray.com/jfrog/artifactory-debs/download_file?file_path=pool%2Fmain%2Fj%2Fjfrog-artifactory-cpp-ce-deb%2Fjfrog-artifactory-cpp-ce-5.11.0.deb
 RUN dpkg -i /tmp/jfrog-artifactory-cpp-ce-5.11.0.deb; exit 0
 RUN apt-get install --yes --fix-broken
+RUN mv /etc/opt/jfrog/artifactory /etc/opt/jfrog/artifactory.default
+
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+ENTRYPOINT ["/start.sh"]
