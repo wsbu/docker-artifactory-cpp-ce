@@ -7,10 +7,10 @@ RUN apt-get install --yes \
   openjdk-8-jre \
   unzip
 
-ENV VERSION=6.3.0
+ENV VERSION=6.3.3
 ENV ARTIFACTORY_HOME=/opt/artifactory-cpp-ce-current
 
-RUN wget -O /tmp/jfrog-artifactory-cpp-ce-${VERSION}.zip https://bintray.com/jfrog/artifactory/download_file?file_path=jfrog-artifactory-cpp-ce-${VERSION}.zip
+RUN wget --quiet -O /tmp/jfrog-artifactory-cpp-ce-${VERSION}.zip https://bintray.com/jfrog/artifactory/download_file?file_path=jfrog-artifactory-cpp-ce-${VERSION}.zip
 RUN unzip /tmp/jfrog-artifactory-cpp-ce-${VERSION}.zip -d /opt && \
     ln -s /opt/artifactory-cpp-ce-${VERSION} ${ARTIFACTORY_HOME}
 RUN mv "${ARTIFACTORY_HOME}/etc" "${ARTIFACTORY_HOME}/etc.defaults"
