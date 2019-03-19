@@ -7,6 +7,8 @@ if [ ! "$(ls -A ${ARTIFACTORY_HOME})" ] ; then
 fi
 
 "${ARTIFACTORY_HOME}/bin/artifactory.sh" start
+
+trap "'${ARTIFACTORY_HOME}/bin/artifactory.sh' stop" SIGTERM
 tail -F "${ARTIFACTORY_HOME}/logs/artifactory.log" &
 
 # Hold here until Artifactory exits
