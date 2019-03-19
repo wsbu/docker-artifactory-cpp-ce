@@ -10,7 +10,7 @@ RUN apt-get install --yes \
   && rm --recursive --force /var/lib/apt/lists/*
 
 ENV VERSION=6.8.7
-ENV ARTIFACTORY_HOME=/opt/artifactory-pro-current
+ENV ARTIFACTORY_HOME=/opt/artifactory-cpp-ce-current
 
 RUN wget --quiet -O /tmp/jfrog-artifactory-cpp-ce-${VERSION}.zip "https://bintray.com/jfrog/artifactory/download_file?file_path=jfrog-artifactory-cpp-ce-${VERSION}.zip"
 RUN unzip /tmp/jfrog-artifactory-cpp-ce-${VERSION}.zip -d /opt && \
